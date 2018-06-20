@@ -1,3 +1,49 @@
 server:
-  port: 8999
-zhangxiuzhi: '{cipher}AQBldH/2isNqTr6KIHi11myZ8P7CWsw0Q3HvfKc5pd3E3Zr5xjG2nXCMuU91ea62Ueb1TSnKisqI23AN6MJup1+eshR+SdoyexslvIPzw1noFYHhVjUhnvZbPNXxbY7tp+PtLSTErV8Ye24PSDvp1Ftuqe6EtiBi+loMhdqxnIkIjcHndF/3+Y+6+iyUmYdw4AFKu76YFruY/maHSkRIGqp6jivrkDDfEezSpi+an264I29yqDsl+s8de5VS3Ku/y1xLXKAATIVTZcQYACUlFMKY6vSDNVUQgiPaoocX5DEi9YaaUP0WLP0WKLqzlglZO/WnQsS077XpoZUxc1bsI4VRN1chWNt+fGc7OnDsWEvpTUTQ2dX4iXQsPMlmjm859HY='
+  port: 8090
+spring:
+  datasource:
+    url: jdbc:mysql://rm-bp17xqvb2f0sve100o.mysql.rds.aliyuncs.com/apptms?useUnicode=true&characterEncoding=utf8
+    username: '{cipher}AQARda7/0IRiHp0hCyNDCC6SyRPR/FEVh+3Ryd2ry/9jntd2aAtWw2gDJvvReF6cg2FGG+AedqV2Nt03DQatppg2+K4zcQsrEVllWDl+YSfAqrOrDF+vbVIKHXWjTCvvkXc7d+sGYjAscn+hTNJNkq+c8zFLOQJJICI32FGcseJA8BinxTOLfd39O1zTEvK7YaoiOUpm3z/wmPAV+0XH/DrUIhTEFF8BjhATQiiWHNeEUE9uHEF2YBTIyW7HtxGJW9gaO0IxDiDjXVnM2n+sptDi9oQKEPkAkPi/0exUqKUj6Smv24B458JpTHEw5LSxgqrAF2lsixj7HMFeMYhdKwCJuUIlHuzBM+y3MH8ZSv3oIgNWvgWM2l9o6+NMV/Xc4bM='
+    password: '{cipher}AQAFzLfMkUQo9BycI8ROOWhUve2Tl/Dqb/ifGSrBvhlFFEoVrmkG9YLb8Xwih4siSctc7jdw02hmztyY4fvfH9DsPFtX7AIHarUM3wbbMCHNzWS1S8LDe2QupGaoRlzzNXcDXMc1nMrdbOn++gV210CKv0mvNs/n7DgL0ICqdS/32qXW8JhLFUVwjULnn60xiKBaRIqLwmQ0T7qK8KOSlHGskpflFT9DOwVZfJ/r+uT+AtymNA8wjf/TLHslifjbDHV8oipp8He4/bGnB2ZNW2/9KVO+CY+NTPFqntPq+AwcIKrKM1lSlfJen4VoiNyLDutvTeQkqItShOVB0WZxRLOebzMgspL4LIPKsFArL5NOx35Ix6XuvjoSDauVi8ZMNEE='
+    druid:
+      max-active: 5
+      max-wait: 20000
+      min-idle: 1
+      filters: stat,wall
+#  redis:
+#    host: 172.18.1.120
+#  cache:
+#    type: redis
+#    cache-names: platinfo,session,base,account,user,user_pic
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+        ddl-auto: none
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+    mode: HTML
+  session:
+    store-type: hash_map
+  cache:
+    type: ehcache
+    ehcache:
+      config: ehcache.xml
+  devtools:
+    restart:
+      trigger-file: IndexController.class
+logging:
+  level:
+   org:
+    hibernate:
+      type:
+        descriptor:
+          sql:
+            BasicBinder: trace
+    springframework:
+      security: debug
+debug: true
