@@ -47,3 +47,10 @@ logging:
     springframework:
       security: debug
 debug: true
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false 
+  local:
+    default:
+      type: linkedhashmap
+      keyConvertor: fastjson
